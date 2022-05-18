@@ -1,6 +1,8 @@
 # matlab-actions
 Run matlab scripts in github-actions.
 
+使用GitHub服务器跑耗时的MATLAB代码。
+
 ## 1.MATLAB代码修改
 在MATLAB主函数代码最后使用命令保存所需数据，如：
 
