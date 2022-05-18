@@ -25,7 +25,11 @@ Settings-->Secrets-->Actions-->New repository secret
 ![image](https://user-images.githubusercontent.com/63141816/169047991-cc90d5bd-2c66-45ce-9898-aba1acfc92a9.png)
 
 ## 5.开始运行Actions
-根据提示更改运行参数，然后点击
+根据提示更改运行参数
+
+![image](https://user-images.githubusercontent.com/63141816/169052140-4cdcd486-19a2-4e55-9335-2a2f3d206d2a.png)
+
+然后点击
 
     Run workflow
 
