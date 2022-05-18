@@ -10,10 +10,7 @@ on:
         description: "name of publish version"
         default: "v1"
         required: true
-      asset_name:
-        description: "name of savefile publishing"
-        default: "Rayleigh_fading_savefile.mat"
-        required: true
+
 jobs:
   my-job:
     name: Run MATLAB Commands
@@ -32,7 +29,6 @@ jobs:
         with:
           repo_token: ${{ secrets.GH_TOKEN }}
           file: data.mat, savepic1.png
-          asset_name: ${{ github.event.inputs.assets_name }}
           tag: ${{ github.event.inputs.release_tag }}
           overwrite: true
           body: "Release savefile of ${{ github.event.inputs.script_name }}"
