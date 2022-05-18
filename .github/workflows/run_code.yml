@@ -1,0 +1,38 @@
+name: Run MATLAB Commands 
+on: 
+  workflow_dispatch:
+    inputs:
+      script_name:
+        description: "matlab script name without .m"
+        default: "sample_script"
+        required: true
+      release_tag:
+        description: "name of publish version"
+        default: "v1"
+        required: true
+      asset_name:
+        description: "name of savefile publishing"
+        default: "sample_script_savefile.mat"
+        required: true
+jobs:
+  my-job:
+    name: Run MATLAB Commands
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v2
+      - name: Set up MATLAB
+        uses: matlab-actions/setup-matlab@v1
+      - name: Run commands
+        run: matlab -batch ${{ github.event.inputs.script_name }}
+      - name: List the assets
+        run: ls -al
+      - name: Upload savefile to release
+        uses: svenstaro/upload-release-action@v2
+        with:
+          repo_token: ${{ secrets.GH_TOKEN }}
+          file: test.mat
+          asset_name: ${{ github.event.inputs.assets_name }}
+          tag: ${{ github.event.inputs.release_tag }}
+          overwrite: true
+          body: "Release savefile of ${{ github.event.inputs.script_name }}"
