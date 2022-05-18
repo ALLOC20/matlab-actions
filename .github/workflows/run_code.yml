@@ -4,7 +4,7 @@ on:
     inputs:
       script_name:
         description: "matlab script name without .m"
-        default: "sample_script"
+        default: "Rayleigh_fading"
         required: true
       release_tag:
         description: "name of publish version"
@@ -12,7 +12,7 @@ on:
         required: true
       asset_name:
         description: "name of savefile publishing"
-        default: "sample_script_savefile.mat"
+        default: "Rayleigh_fading_savefile.mat"
         required: true
 jobs:
   my-job:
@@ -31,7 +31,7 @@ jobs:
         uses: svenstaro/upload-release-action@v2
         with:
           repo_token: ${{ secrets.GH_TOKEN }}
-          file: test.mat
+          file: data.mat, savepic1.png
           asset_name: ${{ github.event.inputs.assets_name }}
           tag: ${{ github.event.inputs.release_tag }}
           overwrite: true
