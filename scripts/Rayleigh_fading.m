@@ -38,5 +38,5 @@ for i = 1:length(sigma_)
         '理论值\sigma=4','仿真值\sigma=4');
 end
 
-save my_data.mat
-print('-f1','-dpng','my_savepic1.png'); 
+save data.mat
+print('-f1','-dpng','savepic1.png'); 
