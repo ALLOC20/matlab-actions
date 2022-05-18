@@ -8,7 +8,11 @@ on:
         required: true
       release_tag:
         description: "name of publish version"
-        default: "v1"
+        default: "Rayleigh_fading_v1"
+        required: true
+      assets_name:
+        description: "name of assets publishing"
+        default: "data.zip"
         required: true
 
 jobs:
@@ -22,13 +26,14 @@ jobs:
         uses: matlab-actions/setup-matlab@v1
       - name: Run commands
         run: cd scripts && matlab -batch ${{ github.event.inputs.script_name }}
-      - name: List the assets
-        run: ls -al
-      - name: Upload savefile to release
+      - name: Zip the workspace
+        run: zip -r data.zip scripts/ && ls -al
+      - name: Upload data to release
         uses: svenstaro/upload-release-action@v2
         with:
           repo_token: ${{ secrets.GH_TOKEN }}
-          file: scripts/my_*
+          file: data.zip
+          asset_name: ${{ github.event.inputs.assets_name }}
           tag: ${{ github.event.inputs.release_tag }}
           overwrite: true
           body: "Release savefile of ${{ github.event.inputs.script_name }}"
