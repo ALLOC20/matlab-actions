@@ -28,7 +28,7 @@ jobs:
         uses: svenstaro/upload-release-action@v2
         with:
           repo_token: ${{ secrets.GH_TOKEN }}
-          file: scripts/*
+          file: scripts/my_*
           tag: ${{ github.event.inputs.release_tag }}
           overwrite: true
           body: "Release savefile of ${{ github.event.inputs.script_name }}"
