@@ -4,7 +4,7 @@ on:
     inputs:
       workspase:
         description: "put your scripts into workspase"
-        default: "workspase1"
+        default: "workspace1"
         required: true
       script_name:
         description: "matlab script name without .m"
