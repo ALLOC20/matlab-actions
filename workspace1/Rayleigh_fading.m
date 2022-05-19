@@ -32,7 +32,7 @@ for i = 1:length(sigma_)
     set(gca,'GridLineStyle',':','GridColor','k','GridAlpha',1);
     xlabel('R');
     ylabel('PDF');
-    title('Rayleigh Fading PDF');
+    title('Rayleigh Fading PDF 瑞利衰落PDF');
     legend('Theory \sigma=0.5','Simula \sigma=0.5','Theory \sigma=1','Simula \sigma=1',...
         'Theory \sigma=2','Simula \sigma=2','Theory \sigma=3','Simula \sigma=3',...
         'Theory \sigma=4','Simula \sigma=4');
