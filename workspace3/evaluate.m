@@ -17,8 +17,14 @@ for ii=1:503
         end
     end
     im_name1 = "image/out_of_focus" + index + ".jpg";
+    if ~exist(im_name1)
+        im_name1 = "image/out_of_focus" + index + ".JPG";
+    end
     Iuint1 = imread(im_name1);
     im_name2 = "image/out_of_focus" + index + ".png";
+    if ~exist(im_name2)
+        im_name1 = "image/out_of_focus" + index + ".PNG";
+    end
     Iunit2= imread(im_name2);
     Idouble1 = im2double(Iuint1);
     Idouble2 = im2double(Iunit2);
