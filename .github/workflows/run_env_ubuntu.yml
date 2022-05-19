@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
     inputs:
       workspase:
-        description: "put your scripts into workspase"
+        description: "put your scripts into workspace"
         default: "workspace1"
         required: true
       script_name:
