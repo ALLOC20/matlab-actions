@@ -46,8 +46,6 @@ Run matlab scripts in github-actions.
 
 注：github-actions运行环境没有中文字体
 
-## 特别提醒：运行重要代码时，请将仓库设为私密
-
 # 鸣谢
 * [MATLAB Actions](https://github.com/matlab-actions)
 
