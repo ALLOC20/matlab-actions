@@ -1,23 +1,23 @@
 name: Run MATLAB Windows 
 on: 
   workflow_dispatch:
-#     inputs:
-#       workspase:
-#         description: "put your scripts into workspace"
-#         default: "workspace1"
-#         required: true
-#       script_name:
-#         description: "matlab script name without .m"
-#         default: "Rayleigh_fading"
-#         required: true
-#       release_tag:
-#         description: "name of publish version"
-#         default: "Rayleigh_fading_v1"
-#         required: true
-#       assets_name:
-#         description: "name of assets publishing"
-#         default: "data.zip"
-#         required: true
+    inputs:
+      workspase:
+        description: "put your scripts into workspace"
+        default: "workspace1"
+        required: true
+      script_name:
+        description: "matlab script name without .m"
+        default: "Rayleigh_fading"
+        required: true
+      release_tag:
+        description: "name of publish version"
+        default: "Rayleigh_fading_v1"
+        required: true
+      assets_name:
+        description: "name of assets publishing"
+        default: "data.zip"
+        required: true
 
 jobs:
   my-job:
@@ -31,7 +31,7 @@ jobs:
 #       - name: Run commands
 #         run: cd ${{ github.event.inputs.workspase }} && matlab -batch ${{ github.event.inputs.script_name }}
       - name: Zip the workspace
-        run: 7zip_win/7z a data.zip ${{ github.event.inputs.workspase }}/** && ls -h
+        run: ls -h && dir && 7zip_win/7z a data.zip ${{ github.event.inputs.workspase }}/** && ls -h
 #       - name: Upload data to release
 #         uses: svenstaro/upload-release-action@v2
 #         with:
