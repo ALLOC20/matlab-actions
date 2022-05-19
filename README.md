@@ -37,6 +37,15 @@ Run matlab scripts in github-actions.
 
 等待运行结束，数据将会发布在Releases处
 
+## 6.重新绘制图片
+加载你的数据
+
+    load(data.mat);
+    
+重新分析绘制图片
+
+注：github-actions运行环境没有中文字体
+
 ## 特别提醒：运行重要代码时，请将仓库设为私密
 
 # 鸣谢
