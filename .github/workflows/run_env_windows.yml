@@ -31,7 +31,7 @@ jobs:
       - name: Run commands
         run: cd ${{ github.event.inputs.workspase }} && matlab -batch ${{ github.event.inputs.script_name }}
       - name: Zip the workspace
-        run: 7z a data.zip ${{ github.event.inputs.workspase }}/**
+        run: .\7z a data.zip ${{ github.event.inputs.workspase }}/**
       - name: Upload data to release
         uses: svenstaro/upload-release-action@v2
         with:
