@@ -1,4 +1,4 @@
-name: Run MATLAB Commands 
+name: Run MATLAB Ubuntu 
 on: 
   workflow_dispatch:
     inputs:
