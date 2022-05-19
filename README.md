@@ -22,7 +22,7 @@ Run matlab scripts in github-actions.
 ![image](https://user-images.githubusercontent.com/63141816/169046576-673bf3e9-3427-4096-a43e-d23917286188.png)
 
 ## 4.将Token填入Actions
-Settings-->Secrets-->Actions-->New repository secret
+本项目的Settings-->Secrets-->Actions-->New repository secret
 
 ![image](https://user-images.githubusercontent.com/63141816/169047991-cc90d5bd-2c66-45ce-9898-aba1acfc92a9.png)
 
