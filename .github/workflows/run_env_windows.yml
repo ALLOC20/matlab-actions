@@ -24,20 +24,20 @@ jobs:
     name: Run MATLAB Commands
     runs-on: windows-latest
     steps:
-#       - name: Check out repository
-#         uses: actions/checkout@v2
-#       - name: Set up MATLAB
-#         uses: matlab-actions/setup-matlab@v1
-#       - name: Run commands
-#         run: cd ${{ github.event.inputs.workspase }} && matlab -batch ${{ github.event.inputs.script_name }}
+      - name: Check out repository
+        uses: actions/checkout@v2
+      - name: Set up MATLAB
+        uses: matlab-actions/setup-matlab@v1
+      - name: Run commands
+        run: cd ${{ github.event.inputs.workspase }} && matlab -batch ${{ github.event.inputs.script_name }}
       - name: Zip the workspace
-        run: dir
-#       - name: Upload data to release
-#         uses: svenstaro/upload-release-action@v2
-#         with:
-#           repo_token: ${{ secrets.GH_TOKEN }}
-#           file: data.zip
-#           asset_name: ${{ github.event.inputs.assets_name }}
-#           tag: ${{ github.event.inputs.release_tag }}
-#           overwrite: true
-#           body: "Release savefile of ${{ github.event.inputs.script_name }}"
+        run: 7z a data.zip ${{ github.event.inputs.workspase }}/**
+      - name: Upload data to release
+        uses: svenstaro/upload-release-action@v2
+        with:
+          repo_token: ${{ secrets.GH_TOKEN }}
+          file: data.zip
+          asset_name: ${{ github.event.inputs.assets_name }}
+          tag: ${{ github.event.inputs.release_tag }}
+          overwrite: true
+          body: "Release savefile of ${{ github.event.inputs.script_name }}"
