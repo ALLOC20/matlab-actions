@@ -27,7 +27,7 @@ for ii=1:503
     [m,n]=size(psf_1);
     
     
-    u=0.1;
+    u=0.5;
 
     J=zeros(m,n);
     for i=1:m
