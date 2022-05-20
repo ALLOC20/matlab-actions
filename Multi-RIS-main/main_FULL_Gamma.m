@@ -644,3 +644,8 @@ legend('Non-RIS (sim.)',...
     'Location','NW');
 
 toc
+
+save data.mat;
+print('-f1','-dpng','pic1.png');
+print('-f2','-dpng','pic2.png');
+print('-f3','-dpng','pic3.png');
