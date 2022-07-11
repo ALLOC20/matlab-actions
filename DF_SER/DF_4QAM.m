@@ -72,11 +72,14 @@ for i=1:length(SNRdb)
     SER_tight(i)=AQ.^2/dsr/dsd/(b_qam/2).^2/r_1.^2+BQ/(b_qam/2).^2/drd/dsd/r_1/r_2; 
     disp(['i=',num2str(i)]);
 end
-figure
 
+figure(1);
 semilogy(SNRdb,simber_DF,'r*',SNRdb,SER_exact,'gd-',SNRdb,SER_up,'k:',SNRdb,SER_tight,'bo-');
 grid on
 xlabel('SNR(dB)');
 ylabel('SER');
 legend('Monte Carlo','SER Exact','Upper bound','Tight Appro')
-axis([0 40 1e-7 1e+1])
+axis([0 40 1e-7 1e+1]);
+
+save data.mat
+print('-f1','-dpdf','savepic1.pdf'); 
