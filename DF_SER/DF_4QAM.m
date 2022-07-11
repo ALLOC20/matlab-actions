@@ -26,6 +26,7 @@ for i=1:length(SNRdb)
      r_2=r_p/2;
 %%%%%%%%%%%%%仿真%%%%%%%%%%%%%%%%%%%%%%%%%%%%
  Nerror=0;
+ N=10^(SNRdb(i)/5+1);
     for ip=1:N
         yuanma=1/sqrt(2)*[-1-1i,-1+1i,1-1i,1+1i ];%QPSK/4QAM
         bit_data=randi([0,1],1,2*Nb);
