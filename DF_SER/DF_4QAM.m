@@ -1,7 +1,9 @@
 clc;clear;
 close all;
 
-N=1e+5;
+tStart=tic;
+
+N=1e+9;
 Nb=1;
 SNRdb=0:2:40;
 dsd=1;dsr=1;drd=1;
@@ -13,6 +15,7 @@ SER_up=zeros(1,length(SNRdb));
 SER_tight=zeros(1,length(SNRdb));
 simber_DF=zeros(1,length(SNRdb));
 for i=1:length(SNRdb)
+    tSNRStart=tic;
     r_p=10^(SNRdb(i)/10);
     AQ=(M-1)/2/M+K.^2/pi;
     BQ=3*(M-1)/8/M+K.^2/pi;
@@ -70,7 +73,8 @@ for i=1:length(SNRdb)
     SER_up(i)=((M-1)/M.^2).*p1./p2;
     %%%%%%%%%渐近%%%%%%%%%%%%%%%
     SER_tight(i)=AQ.^2/dsr/dsd/(b_qam/2).^2/r_1.^2+BQ/(b_qam/2).^2/drd/dsd/r_1/r_2; 
-    disp(['i=',num2str(i)]);
+    tSNREnd=toc(tSNRStart);
+    disp(['i=',num2str(i),', takes ',num2str(tSNREnd),' s']);
 end
 
 figure(1);
@@ -80,6 +84,9 @@ xlabel('SNR(dB)');
 ylabel('SER');
 legend('Monte Carlo','SER Exact','Upper bound','Tight Appro')
 axis([0 40 1e-7 1e+1]);
+
+tEnd=toc(tStart);
+disp(['The total time is ',num2str(tEnd),' seconds']);
 
 save data.mat
 print('-f1','-dpdf','savepic1.pdf'); 
